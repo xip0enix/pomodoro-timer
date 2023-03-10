@@ -82,17 +82,21 @@
     .btn {
       height: 3rem;
       margin-bottom: 0.8rem;
-      margin-left: 5%;
-      width: 11rem;
+      margin-left: 2%;
+
+
     }
     .button-box {
       display: flex;
       padding-top: 20%;
+      padding-right: 5%;
+
     }
     .timer-box {
       padding-right: 8%;
+      padding-right: 5%;
     }
     .timer {
-        font-size: 10rem;
+        font-size: 8rem;
     }
   }
