@@ -78,3 +78,20 @@ body {
     box-shadow: inset 0px 3px 7px #d6d6e7;
     transform: translateY(2px);
 }
+
+@media only screen and (max-width: 68.75em) {
+    .btn {
+        height: 30px;
+        margin-bottom: 8px;
+        width: 110px;
+        margin-left: 5%;
+        
+    }
+    .button-box {
+        padding-top: 20%;
+        display: flex;
+    }
+    .timer-box {
+        padding-right: 8%;
+    }
+}
