@@ -1,97 +1,98 @@
 :root {
-    --bc: #E26D5C;
-}
-
-* {
+    --bc: #e26d5c;
+  }
+  
+  * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Work Sans', sans-serif;
   }
-
-body {
+  
+  body {
+    align-items: center;
     background-color: var(--bc);
     display: flex;
-    align-items: center;
+    font-family: 'Tilt Neon', cursive;
+    height: 100vh;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
-    font-family: 'Tilt Neon', cursive;
-   }
-
-.container {
-    width: 145vh;
-    height: 85vh;
+  }
+  
+  .container {
     display: grid;
+    grid-gap: 30px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 30px;
+    height: 85vh;
     padding: 20px;
-}
-
-.timer-box {
-    grid-row: 2 / span 1;
-    grid-column: 2 / span 2;
+    width: 145vh;
+  }
+  
+  .timer-box {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
     justify-content: center;
-}
-
-.button-box {
-    padding-top: 2.5vh;
-}
-
-.timer {
-    display: flex;
+  }
+  
+  .timer {
     align-items: center;
-    justify-content: center;
     color: #fff;
-    font-size: 20vh;
-    font-family: 'Tilt Neon', cursive;   
-}
-
-.btn {
-    
-    display: inline-block;
-    outline: 0;
+    display: flex;
+    font-family: 'Tilt Neon', cursive;
+    font-size: 20rem;
+    justify-content: center;
+  }
+  
+  .button-box {
+    padding-top: 2.5vh;
+    display: flex;
+  }
+  
+  .btn {
+    margin-left: 5%;
+    background: #fcfcfd;
     border: 0;
-    cursor: pointer;
-    transition: box-shadow 0.15s ease,transform 0.15s ease;
-    will-change: box-shadow,transform;
-    background: #FCFCFD;
-    box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
-    height: 48px;
-    padding: 0 32px;
-    font-size: 18px;
     border-radius: 6px;
+    box-shadow: 0px 2px 4px rgba(45, 35, 66, 0.4), 0px 7px 13px -3px rgba(45, 35, 66, 0.3), inset 0px -3px 0px #d6d6e7;
     color: #36395a;
-    transition: box-shadow 0.15s ease,transform 0.15s ease;  
-}
-
-.btn:hover {
-    box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
-    transform: translateY(-2px);
-}
-
-.btn:active{
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.8rem;
+    height: 4.8rem;
+    outline: 0;
+    padding: 0 3.2rem;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+    will-change: box-shadow, transform;
+  }
+  
+  .btn:hover {
+    box-shadow: 0px 4px 8px rgba(45, 35, 66, 0.4), 0px 7px 13px -3px rgba(45, 35, 66, 0.3), inset 0px -3px 0px #d6d6e7;
+    transform: translateY(-0.2rem);
+  }
+  
+  .btn:active {
     box-shadow: inset 0px 3px 7px #d6d6e7;
-    transform: translateY(2px);
-}
-
-@media only screen and (max-width: 68.75em) {
+    transform: translateY(0.2rem);
+  }
+  
+  @media only screen and (max-width: 68.75em) {
     .btn {
-        height: 30px;
-        margin-bottom: 8px;
-        width: 110px;
-        margin-left: 5%;
-        
+      height: 3rem;
+      margin-bottom: 0.8rem;
+      margin-left: 5%;
+      width: 11rem;
     }
     .button-box {
-        padding-top: 20%;
-        display: flex;
+      display: flex;
+      padding-top: 20%;
     }
     .timer-box {
-        padding-right: 8%;
+      padding-right: 8%;
     }
-}
+    .timer {
+        font-size: 10rem;
+    }
+  }
