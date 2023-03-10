@@ -1,6 +1,8 @@
 // Set the timer durations in minutes
 const workDuration = 25;
 const breakDuration = 5;
+const longBreakDuration = 15;
+var pomodoroStreak = 0;
 
 
 // Get the HTML elements
@@ -16,6 +18,7 @@ const resetButton = document.getElementById("reset");
 let currentDuration = workDuration;
 let secondsRemaining = currentDuration * 60;
 let intervalId;
+
 
 // Format the remaining time as MM:SS and update the HTML elements
 function updateTimer() {
@@ -33,9 +36,11 @@ function startTimer() {
 
   // Disable the start button
   startButton.disabled = true;
+  
     
   // Update the timer immediately
   updateTimer();
+  
 
   // Set up the interval to update the timer every second
   intervalId = setInterval(() => {
@@ -48,12 +53,28 @@ function startTimer() {
     // Check if the timer has reached zero
     if (secondsRemaining <= 0) {
       // Stop the interval
+      playSound();
       clearInterval(intervalId);
 
+      
+    
       // Toggle the current duration and reset the seconds remaining
       if (currentDuration === workDuration) {
-        currentDuration = breakDuration;
-        bodyElement.style.backgroundColor = "#C9CBA3";
+        pomodoroStreak++;
+        console.log(pomodoroStreak);
+       
+        //Pomodoro Long Break
+        if (pomodoroStreak === 4)
+        {
+          pomodoroStreak = 0;
+          currentDuration = longBreakDuration;
+          bodyElement.style.backgroundColor = "#3a3a3a";
+        }
+        else {
+          currentDuration = breakDuration;
+          bodyElement.style.backgroundColor = "#C9CBA3";
+        }
+        
       } else {
         currentDuration = workDuration;
         bodyElement.style.backgroundColor = "#E26D5C";
@@ -67,6 +88,15 @@ function startTimer() {
   }, 1000);
 }
 
+//Play Sound
+function playSound() {
+  let audio = new Audio("/audio/sound.wav");
+  audio.play();
+}
+function playCancel() {
+  let audio = new Audio("/audio/cancel.wav");
+  audio.play();
+}
 // Set up the click event listener for the start button
 startButton.addEventListener("click", startTimer);
 
@@ -74,6 +104,7 @@ startButton.addEventListener("click", startTimer);
 // Set up the click event listener for the reset button
 resetButton.addEventListener("click", () => {
   // Stop the timer interval if it is running
+  playCancel();
   clearInterval(intervalId);
 
   // Reset the current duration and seconds remaining
