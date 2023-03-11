@@ -76,13 +76,13 @@ if (secondsRemaining <= 0) {
 
 // Play Sound
 function playSound() {
-let audio = new Audio("/audio/sound.wav");
+let audio = new Audio("/audio/sound.mp3");
 audio.play();
 }
 
 // Play Cancel Sound
 function playCancel() {
-let audio = new Audio("/audio/cancel.wav");
+let audio = new Audio("/audio/cancel.mp3");
 audio.play();
 }
 
