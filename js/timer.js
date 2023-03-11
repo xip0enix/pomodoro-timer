@@ -76,13 +76,13 @@ if (secondsRemaining <= 0) {
 
 // Play Sound
 function playSound() {
-let audio = new Audio("/audio/sound.mp3");
+let audio = new Audio("https://github.com/xip0enix/pomodoro-timer/blob/main/audio/sound.mp3?raw=true");
 audio.play();
 }
 
 // Play Cancel Sound
 function playCancel() {
-let audio = new Audio("/audio/cancel.mp3");
+let audio = new Audio("https://github.com/xip0enix/pomodoro-timer/blob/main/audio/cancel.mp3?raw=true");
 audio.play();
 }
 
