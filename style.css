@@ -87,6 +87,9 @@
   }
   
   @media only screen and (max-width: 68.75em) {
+    body {
+      overflow: hidden;
+    }
     .btn {
       height: 3rem;
       margin-bottom: 0.8rem;
@@ -110,6 +113,9 @@
   }
   
   @media only screen and (max-width: 40em) {
+    body {
+      overflow: hidden;
+    }
     /* Die Schriftgröße für kleinere Bildschirme anpassen */
     .timer {
       font-size: 9rem;
