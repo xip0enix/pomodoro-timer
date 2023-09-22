@@ -11,6 +11,7 @@ const secondsElement = document.getElementById("seconds");
 const separatorElement = document.getElementById("separator");
 const startButton = document.getElementById("start");
 const resetButton = document.getElementById("reset");
+const roundcounter = document.getElementById("lap");
 
 // Initialize the timer variables
 let currentDuration = workDuration;
@@ -51,10 +52,10 @@ if (secondsRemaining <= 0) {
 
   // Toggle the current duration and reset the seconds remaining
   if (currentDuration === workDuration) {
-    pomodoroStreak++;
     // Pomodoro Long Break
-    if (pomodoroStreak === 4) {
+    if (pomodoroStreak === 3) { // Pomodoro-Zähler bei 0 beginnen, 4 Arbeitsphasen vor einer langen Pause
       pomodoroStreak = 0;
+      roundcounter.textContent = "Zyklus: 0" + (pomodoroStreak + 1);
       currentDuration = longBreakDuration;
       bodyElement.style.backgroundColor = "#3a3a3a";
     } else {
@@ -62,6 +63,8 @@ if (secondsRemaining <= 0) {
       bodyElement.style.backgroundColor = "#C9CBA3";
     }
   } else {
+    pomodoroStreak++;
+    roundcounter.textContent = "Zyklus: 0" + (pomodoroStreak + 1);
     currentDuration = workDuration;
     bodyElement.style.backgroundColor = "#E26D5C";
   }

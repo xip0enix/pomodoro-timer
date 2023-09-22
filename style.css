@@ -36,7 +36,13 @@
     grid-row: 2 / span 1;
     justify-content: center;
   }
-  
+  .lap{
+    align-items: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+  }
   .timer {
     align-items: center;
     color: #fff;
@@ -67,7 +73,9 @@
     transition: box-shadow 0.15s ease, transform 0.15s ease;
     will-change: box-shadow, transform;
   }
-  
+  .content {
+    font-weight: 550;
+  }
   .btn:hover {
     box-shadow: 0px 4px 8px rgba(45, 35, 66, 0.4), 0px 7px 13px -3px rgba(45, 35, 66, 0.3), inset 0px -3px 0px #d6d6e7;
     transform: translateY(-0.2rem);
@@ -83,20 +91,31 @@
       height: 3rem;
       margin-bottom: 0.8rem;
       margin-left: 2%;
-
-
     }
+  
     .button-box {
       display: flex;
       padding-top: 20%;
       padding-right: 5%;
-
     }
+  
     .timer-box {
-      padding-right: 8%;
+      /* Reduzieren Sie den rechten Abstand auf 5% für bessere Konsistenz */
       padding-right: 5%;
     }
+  
     .timer {
-        font-size: 12rem;
+      font-size: 13rem;
     }
   }
+  
+  @media only screen and (max-width: 40em) {
+    /* Die Schriftgröße für kleinere Bildschirme anpassen */
+    .timer {
+      font-size: 9rem;
+    }
+    .content{
+      font-weight: 200;
+    }
+  }
+  
