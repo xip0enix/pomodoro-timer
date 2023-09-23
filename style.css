@@ -42,6 +42,7 @@
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    padding-left: 7%;
   }
   .timer {
     align-items: center;
@@ -51,7 +52,7 @@
     font-size: 20rem;
     justify-content: center;
   }
-  
+
   .button-box {
     padding-top: 2.5vh;
     display: flex;
@@ -119,6 +120,10 @@
     /* Die Schriftgröße für kleinere Bildschirme anpassen */
     .timer {
       font-size: 9rem;
+    }
+    .lap {
+      font-size: 15px;
+      padding-left: 2%;
     }
     .content{
       font-weight: 200;
