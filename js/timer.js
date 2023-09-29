@@ -25,8 +25,14 @@ const seconds = (secondsRemaining % 60).toString().padStart(2, "0");
 minutesElement.textContent = minutes;
 secondsElement.textContent = seconds;
 
-// Update the page title with the remaining time
-document.title = `${minutes}:${seconds} - Pomodoro Timer`;
+if (currentDuration === workDuration) {
+  // Update the page title with the remaining time
+  document.title = `${minutes}:${seconds} - Time to focus!`;
+} else {
+  // Pause
+  document.title = `${minutes}:${seconds} - Time for a break!`;
+}
+
 }
 
 // Start the timer
