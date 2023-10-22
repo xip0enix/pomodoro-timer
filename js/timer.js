@@ -71,7 +71,7 @@ if (secondsRemaining <= 0) {
     }
   } else {
     pomodoroStreak++;
-    roundcounter.textContent = "#0" + (pomodoroStreak + 1) + " Time to focus!✍️";
+    roundcounter.textContent = "#0" + (pomodoroStreak + 1) + " Time to focus!";
     currentDuration = workDuration;
     bodyElement.style.backgroundColor = "#E26D5C";
   }
@@ -108,7 +108,7 @@ clearInterval(intervalId);
 // Reset the current duration and seconds remaining
 currentDuration = workDuration;
 secondsRemaining = currentDuration * 60;
-roundcounter.textContent = "#0" + (pomodoroStreak + 1) + " Time to focus!✍️";
+roundcounter.textContent = "#0" + (pomodoroStreak + 1) + " Time to focus!";
 bodyElement.style.backgroundColor = "#E26D5C";
 
 // Update the timer display and enable the start button
