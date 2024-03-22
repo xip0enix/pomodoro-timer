@@ -18,6 +18,8 @@ let currentDuration = workDuration;
 let secondsRemaining = currentDuration * 60;
 let intervalId;
 
+let documentTitleText = ""; // To store the document title text
+
 // Format the remaining time as MM:SS and update the HTML elements
 function updateTimer() {
   const minutes = Math.floor(secondsRemaining / 60).toString().padStart(2, "0");
@@ -25,7 +27,11 @@ function updateTimer() {
   minutesElement.textContent = minutes;
   secondsElement.textContent = seconds;
 
-  document.title = `${minutes}:${seconds} - ${currentDuration === workDuration ? 'Time to focus!' : 'Time for a break!'}`;
+  // Update document title only if currentDuration changes
+  if (documentTitleText !== `${minutes}:${seconds} - ${currentDuration === workDuration ? 'Time to focus!' : 'Time for a break!'}`) {
+    documentTitleText = `${minutes}:${seconds} - ${currentDuration === workDuration ? 'Time to focus!' : 'Time for a break!'}`;
+    document.title = documentTitleText;
+  }
 }
 
 // Start the timer
@@ -90,6 +96,7 @@ resetButton.addEventListener("click", () => {
   roundcounter.textContent = `#${pomodoroStreak + 1} Time to focus!`;
   bodyElement.style.backgroundColor = "#E26D5C";
   pomodoroStreak = 0;
+  documentTitleText = ""; // Reset document title text
 
   // Update the timer display and enable the start button
   updateTimer();
