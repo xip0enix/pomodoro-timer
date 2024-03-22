@@ -18,8 +18,6 @@ let currentDuration = workDuration;
 let secondsRemaining = currentDuration * 60;
 let intervalId;
 
-let documentTitleText = ""; // To store the document title text
-
 // Format the remaining time as MM:SS and update the HTML elements
 function updateTimer() {
   const minutes = Math.floor(secondsRemaining / 60).toString().padStart(2, "0");
@@ -27,11 +25,7 @@ function updateTimer() {
   minutesElement.textContent = minutes;
   secondsElement.textContent = seconds;
 
-  // Update document title only if currentDuration changes
-  if (documentTitleText !== `${minutes}:${seconds} - ${currentDuration === workDuration ? 'Time to focus!' : 'Time for a break!'}`) {
-    documentTitleText = `${minutes}:${seconds} - ${currentDuration === workDuration ? 'Time to focus!' : 'Time for a break!'}`;
-    document.title = documentTitleText;
-  }
+  document.title = `${minutes}:${seconds} - ${currentDuration === workDuration ? 'Time to focus!' : 'Time for a break!'}`;
 }
 
 // Start the timer
@@ -66,6 +60,11 @@ function startTimer() {
       roundcounter.textContent = `#${pomodoroStreak + 1} ${currentDuration === workDuration ? 'Time to focus!' : 'Take a break!☕'}`;
       bodyElement.style.backgroundColor = currentDuration === workDuration ? "#E26D5C" : (currentDuration === longBreakDuration ? "#3a3a3a" : "#C9CBA3");
       startButton.disabled = false;
+    } else {
+      // Early exit for long break background color
+      if (currentDuration === longBreakDuration && bodyElement.style.backgroundColor === "#3a3a3a") {
+        return;  // Exit the interval if long break and color set
+      }
     }
   }, 1000);
 }
@@ -96,7 +95,6 @@ resetButton.addEventListener("click", () => {
   roundcounter.textContent = `#${pomodoroStreak + 1} Time to focus!`;
   bodyElement.style.backgroundColor = "#E26D5C";
   pomodoroStreak = 0;
-  documentTitleText = ""; // Reset document title text
 
   // Update the timer display and enable the start button
   updateTimer();
