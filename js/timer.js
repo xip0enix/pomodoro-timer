@@ -1,6 +1,6 @@
 // Set the timer durations in minutes
-const workDuration = 0.2;
-const breakDuration = 0.1;
+const workDuration = 25;
+const breakDuration = 5;
 const longBreakDuration = 15;
 let pomodoroStreak = 0;
 
